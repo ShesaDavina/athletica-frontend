@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+
+/* Custom warna Athletica */
+:root {
+  --color-athletica-cream: #f7f8f0;
+  --color-athletica-blue-light: #9cd5ff;
+  --color-athletica-blue-mid: #7aaace;
+  --color-athletica-blue-dark: #355872;
+}
+
+/* Override theme colors */
+@theme {
+  --color-athletica-cream: #f7f8f0;
+  --color-athletica-blue-light: #9cd5ff;
+  --color-athletica-blue-mid: #7aaace;
+  --color-athletica-blue-dark: #355872;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Custom classes */
+.bg-athletica-cream {
+  background-color: #f7f8f0;
+}
+.bg-athletica-blue-light {
+  background-color: #9cd5ff;
+}
+.bg-athletica-blue-mid {
+  background-color: #7aaace;
+}
+.bg-athletica-blue-dark {
+  background-color: #355872;
+}
+.bg-athletica-blue-dark-transparent {
+  background-color: #355872db;
+}
+
+.text-athletica-cream {
+  color: #f7f8f0;
+}
+.text-athletica-blue-light {
+  color: #9cd5ff;
+}
+.text-athletica-blue-mid {
+  color: #7aaace;
+}
+.text-athletica-blue-dark {
+  color: #355872;
+}
+
+.border-athletica-blue-mid {
+  border-color: #7aaace;
+}
+
+.bg-athletica-card {
+  background-color: #355872;
+}
+
+.bg-athletica-card-icon {
+  background-color: rgba(247, 248, 240, 0.15);
+}
+
+.text-athletica-card-title {
+  color: #F7F8F0;
+}
+
+.text-athletica-card-desc {
+  color: #9CD5FF;
+}
+
+.text-athletica-card-link {
+  color: #F7F8F0;
+}
+
+.hover\:shadow-athletica:hover {
+  box-shadow: 0 20px 25px -5px rgba(53, 88, 114, 0.2), 0 8px 10px -6px rgba(53, 88, 114, 0.1);
+}
+
+.navbar-link-custom {
+  color: #F7F8F0 !important;
+}
+
+.navbar-link-custom:hover {
+  color: #9CD5FF !important;
+  background-color: transparent !important;
+}
+
+.navbar-collapse-custom .navbar-link-custom {
+  color: #F7F8F0 !important;
+  padding: 0.75rem 0;
+}
+
+.navbar-collapse-custom .navbar-link-custom:hover {
+  color: #9CD5FF !important;
+  background-color: transparent !important;
+}
