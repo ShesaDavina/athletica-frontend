@@ -75,7 +75,7 @@ export default function UserMemberships() {
             </div>
 
             {activeMembership && (
-                <div className="bg-gradient-to-r from-athletica-blue-dark to-athletica-blue-mid rounded-2xl p-6 text-white shadow-lg">
+                <div className="bg-linear-to-r from-athletica-blue-dark to-athletica-blue-mid rounded-2xl p-6 text-white shadow-lg">
                     <div className="flex items-center justify-between flex-wrap gap-4">
                         <div>
                             <p className="text-white/80 text-sm">Membership Aktif</p>
