@@ -4,7 +4,7 @@ import { Users, Dumbbell, Calendar, TrendingUp, Award, MoreVertical, Activity, D
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const Dashboard = () => {
+export default function Dashboard() {
     const [dashboardData, setDashboardData] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -213,5 +213,3 @@ const Dashboard = () => {
         </div>
     );
 };
-
-export default Dashboard;

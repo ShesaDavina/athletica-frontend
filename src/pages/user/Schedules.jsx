@@ -1,23 +1,11 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
-import {
-    Calendar,
-    Clock,
-    Dumbbell,
-    User,
-    CreditCard,
-    X,
-    Search,
-    Users,
-    ChevronRight,
-    Crown,
-    CheckCircle,
-} from "lucide-react";
+import { Calendar, Clock, Dumbbell, User, CreditCard, X, Search, Users, ChevronRight, Crown, CheckCircle } from "lucide-react";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const UserSchedules = () => {
+export default function UserSchedules() {
     const [classes, setClasses] = useState([]);
     const [schedules, setSchedules] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -121,7 +109,6 @@ const UserSchedules = () => {
 
     return (
         <div className="space-y-8">
-            {/* Header */}
             <div className="relative">
                 <div className="absolute inset-0 bg-linear-to-r from-athletica-blue-dark/5 to-athletica-blue-light/10 rounded-2xl blur-xl -z-10" />
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
@@ -142,7 +129,6 @@ const UserSchedules = () => {
                 </div>
             </div>
 
-            {/* Search */}
             <div className="relative max-w-md">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-athletica-blue-mid h-5 w-5" />
                 <input
@@ -154,7 +140,6 @@ const UserSchedules = () => {
                 />
             </div>
 
-            {/* Grid Kelas dengan Gambar */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {filteredClasses.map((cls) => (
                     <div
@@ -200,7 +185,6 @@ const UserSchedules = () => {
                 ))}
             </div>
 
-            {/* Modal Daftar Jadwal */}
             {scheduleModalOpen && selectedClass && (
                 <div
                     className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
@@ -293,7 +277,6 @@ const UserSchedules = () => {
                 </div>
             )}
 
-            {/* Modal Booking - Desain Modern */}
             {modalOpen && selectedSchedule && (
                 <div
                     className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
@@ -308,7 +291,6 @@ const UserSchedules = () => {
                             <p className="text-white/80 text-sm">{selectedSchedule.class?.class_name}</p>
                         </div>
                         <div className="p-6 space-y-5">
-                            {/* Detail */}
                             <div className="bg-athletica-blue-light/10 rounded-xl p-4 space-y-2">
                                 <div className="flex justify-between">
                                     <span className="text-gray-500">Tanggal</span>
@@ -339,7 +321,6 @@ const UserSchedules = () => {
                                 </div>
                             </div>
 
-                            {/* Pilihan Metode */}
                             <div>
                                 <label className="block text-sm font-semibold mb-2 text-athletica-blue-dark">Pilih Metode</label>
                                 <div className="grid grid-cols-2 gap-3">
@@ -382,7 +363,6 @@ const UserSchedules = () => {
                                 </div>
                             </div>
 
-                            {/* Info */}
                             {bookingType === "membership" && userMembership && (
                                 <div className="bg-purple-50 rounded-lg p-3 flex items-start gap-2 text-sm text-purple-800">
                                     <CheckCircle className="h-4 w-4 mt-0.5" />
@@ -410,5 +390,3 @@ const UserSchedules = () => {
         </div>
     );
 };
-
-export default UserSchedules;

@@ -1,22 +1,12 @@
 /* eslint-disable react-hooks/immutability */
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
-import {
-    Search,
-    ChevronLeft,
-    ChevronRight,
-    Calendar,
-    Clock,
-    User,
-    CheckCircle,
-    XCircle,
-    Filter,
-} from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, Calendar, Clock, User, CheckCircle, XCircle, Filter } from "lucide-react";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const TrainerAttendance = () => {
+export default function TrainerAttendance() {
     const [attendances, setAttendances] = useState([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
@@ -28,7 +18,6 @@ const TrainerAttendance = () => {
 
     const limit = 10;
 
-    // Fetch all booking dari jadwal trainer
     const fetchAttendances = async () => {
         setLoading(true);
         try {
@@ -55,7 +44,6 @@ const TrainerAttendance = () => {
         }
     };
 
-    // Fetch daftar jadwal trainer untuk filter
     const fetchSchedules = async () => {
         try {
             const response = await axiosInstance.get("/trainer/schedules?page=1&limit=100");
@@ -138,7 +126,6 @@ const TrainerAttendance = () => {
 
     return (
         <div>
-            {/* Header */}
             <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-bold text-athletica-blue-dark">Manajemen Kehadiran</h1>
@@ -153,7 +140,6 @@ const TrainerAttendance = () => {
                 </button>
             </div>
 
-            {/* Search Bar */}
             <div className="bg-white rounded-2xl p-4 shadow-md mb-4">
                 <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -167,7 +153,6 @@ const TrainerAttendance = () => {
                 </div>
             </div>
 
-            {/* Filter Panel */}
             {showFilter && (
                 <div className="bg-white rounded-2xl p-4 shadow-md mb-6">
                     <div className="flex justify-between items-center mb-3">
@@ -209,7 +194,6 @@ const TrainerAttendance = () => {
                 </div>
             )}
 
-            {/* Table */}
             <div className="bg-white rounded-xl shadow-sm overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
@@ -299,7 +283,6 @@ const TrainerAttendance = () => {
                     </table>
                 </div>
 
-                {/* Pagination */}
                 {pagination.last_page > 1 && (
                     <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100">
                         <button
@@ -327,5 +310,3 @@ const TrainerAttendance = () => {
         </div>
     );
 };
-
-export default TrainerAttendance;

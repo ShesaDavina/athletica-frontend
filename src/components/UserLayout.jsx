@@ -5,7 +5,7 @@ import { Calendar, ChevronDown, Crown, Dumbbell, History, LogOut, Menu, X } from
 import axiosInstance from "../utils/axiosConfig";
 import toast from "react-hot-toast";
 
-const UserLayout = () => {
+export default function UserLayout() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const [userName, setUserName] = useState("");
@@ -50,10 +50,8 @@ const UserLayout = () => {
 
     return (
         <div className="min-h-screen bg-athletica-cream">
-            {/* Navbar Float */}
             <nav className="fixed top-4 left-1/2 z-50 w-[90%] max-w-7xl -translate-x-1/2 rounded-2xl border border-athletica-blue-dark bg-white/80 backdrop-blur-md bg-athletica-blue-dark-transparent lg:top-6">
                 <div className="flex items-center justify-between px-4 py-2 md:px-6">
-                    {/* Logo */}
                     <Link to="/user" className="flex items-center gap-2 shrink-0">
                         <div className="bg-athletica-blue-dark p-2 rounded-xl">
                             <Dumbbell className="h-6 w-6 text-white" />
@@ -61,7 +59,6 @@ const UserLayout = () => {
                         <span className="text-xl font-bold text-athletica-blue-light">Athletica</span>
                     </Link>
 
-                    {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-1">
                         {navItems.map((item) => (
                             <Link
@@ -78,7 +75,6 @@ const UserLayout = () => {
                         ))}
                     </div>
 
-                    {/* Right Section: Profile Dropdown + Mobile Toggle */}
                     <div className="flex items-center gap-3">
                         {/* Profile Dropdown */}
                         <div className="relative" ref={dropdownRef}>
@@ -110,7 +106,6 @@ const UserLayout = () => {
                             )}
                         </div>
 
-                        {/* Mobile Toggle Button (hanya di mobile) - putih terang */}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className="md:hidden p-2 rounded-lg bg-white/90 border border-athletica-blue-light/40 text-athletica-blue-dark hover:bg-white transition-all focus:outline-none"
@@ -120,7 +115,6 @@ const UserLayout = () => {
                     </div>
                 </div>
 
-                {/* Mobile Menu Dropdown */}
                 {isMobileMenuOpen && (
                     <div className="md:hidden border-t border-athletica-blue-light/30 p-4 space-y-2">
                         {navItems.map((item) => (
@@ -151,7 +145,6 @@ const UserLayout = () => {
                 )}
             </nav>
 
-            {/* Main Content */}
             <main className="pt-28 pb-12 px-4 md:px-8">
                 <div className="max-w-7xl mx-auto">
                     <Outlet />
@@ -160,5 +153,3 @@ const UserLayout = () => {
         </div>
     );
 };
-
-export default UserLayout;

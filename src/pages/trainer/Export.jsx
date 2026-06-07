@@ -3,7 +3,7 @@ import { Download, Calendar, Users, FileText, Loader2 } from "lucide-react";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 
-const TrainerExport = () => {
+export default function TrainerExport() {
     const [exportingSchedule, setExportingSchedule] = useState(false);
     const [exportingAttendance, setExportingAttendance] = useState(false);
     const [startDate, setStartDate] = useState("");
@@ -147,7 +147,6 @@ const TrainerExport = () => {
                     </div>
                 </div>
 
-                {/* Card Export Kehadiran */}
                 <div className="bg-white rounded-2xl shadow-md overflow-hidden">
                     <div className="p-6 border-b border-gray-100">
                         <div className="flex items-center gap-3 mb-2">
@@ -209,7 +208,6 @@ const TrainerExport = () => {
                 </div>
             </div>
 
-            {/* Info / Catatan */}
             <div className="mt-8 bg-athletica-blue-light/10 rounded-2xl p-4">
                 <p className="text-sm text-athletica-blue-dark">
                     ⚡ <span className="font-semibold">Catatan:</span> Export akan menghasilkan file Excel (.xlsx). Data yang diexport akan menyesuaikan dengan rentang tanggal yang dipilih (jika diisi).
@@ -218,5 +216,3 @@ const TrainerExport = () => {
         </div>
     );
 };
-
-export default TrainerExport;

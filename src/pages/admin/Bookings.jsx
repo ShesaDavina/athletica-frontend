@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const Bookings = () => {
+export default function Bookings() {
     const [bookings, setBookings] = useState([]);
     const [pagination, setPagination] = useState({
         current_page: 1,
@@ -327,5 +327,3 @@ const Bookings = () => {
         </div>
     );
 };
-
-export default Bookings;

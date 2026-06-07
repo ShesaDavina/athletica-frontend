@@ -1,22 +1,10 @@
 import { useEffect, useState } from "react";
-import {
-    Plus,
-    Search,
-    Edit,
-    Trash2,
-    ChevronLeft,
-    ChevronRight,
-    Users,
-    X,
-    Mail,
-    Lock,
-    User,
-} from "lucide-react";
+import { Plus, Search, Edit, Trash2, ChevronLeft, ChevronRight, Users, X, Mail, Lock, User } from "lucide-react";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const Trainers = () => {
+export default function Trainers() {
     const [trainers, setTrainers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
@@ -118,7 +106,6 @@ const Trainers = () => {
             return;
         }
 
-        // untuk update, jika password diisi tapi tidak cocok
         if (selectedTrainer && formData.password && formData.password !== formData.password_confirmation) {
             toast.error("Password tidak cocok!");
             return;
@@ -203,7 +190,6 @@ const Trainers = () => {
 
     return (
         <div>
-            {/* Header */}
             <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-bold text-athletica-blue-dark">Manajemen Trainer</h1>
@@ -218,7 +204,6 @@ const Trainers = () => {
                 </button>
             </div>
 
-            {/* Search Bar */}
             <div className="bg-white rounded-2xl p-4 shadow-md mb-6">
                 <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -232,7 +217,6 @@ const Trainers = () => {
                 </div>
             </div>
 
-            {/* Table */}
             <div className="bg-white rounded-2xl shadow-md overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
@@ -260,7 +244,7 @@ const Trainers = () => {
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-athletica-blue-dark to-athletica-blue-mid flex items-center justify-center">
+                                                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-athletica-blue-dark to-athletica-blue-mid flex items-center justify-center">
                                                     <Users className="h-5 w-5 text-white" />
                                                 </div>
                                                 <span className="font-medium text-athletica-blue-dark">
@@ -297,7 +281,6 @@ const Trainers = () => {
                     </table>
                 </div>
 
-                {/* Pagination */}
                 {totalPages > 1 && (
                     <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100">
                         <button
@@ -323,7 +306,6 @@ const Trainers = () => {
                 )}
             </div>
 
-            {/* Modal Form */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto">
@@ -424,7 +406,6 @@ const Trainers = () => {
                 </div>
             )}
 
-            {/* Delete Confirmation Modal */}
             {isDeleteModalOpen && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-2xl w-full max-w-md">
@@ -460,5 +441,3 @@ const Trainers = () => {
         </div>
     );
 };
-
-export default Trainers;

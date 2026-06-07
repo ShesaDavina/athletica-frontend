@@ -1,15 +1,9 @@
 import { Link } from "react-router-dom";
 import LandingNavbar from "../components/LandingNavbar";
-import {
-    Dumbbell,
-    ArrowRight,
-    CheckCircle,
-    Crown,
-    Sparkles
-} from "lucide-react";
+import { Dumbbell, ArrowRight, CheckCircle, Crown, Sparkles } from "lucide-react";
 import FeatureCards from "../components/FeatureCards";
 
-const LandingPage = () => {
+export default function LandingPage() {
     return (
         <div className="min-h-screen bg-athletica-cream">
             <LandingNavbar />
@@ -144,7 +138,7 @@ const LandingPage = () => {
                                 <ul className="text-left space-y-3 mb-8">
                                     {membership.benefits.map((benefit, i) => (
                                         <li key={i} className="flex items-center gap-2 text-sm">
-                                            <CheckCircle className="h-4 w-4 flex-shrink-0" />
+                                            <CheckCircle className="h-4 w-4 shrink-0" />
                                             {benefit}
                                         </li>
                                     ))}
@@ -235,5 +229,3 @@ const memberships = [
         popular: false
     }
 ];
-
-export default LandingPage;

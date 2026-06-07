@@ -5,14 +5,14 @@ import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const UserBookings = () => {
+export default function UserBookings() {
     const [bookings, setBookings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedBooking, setSelectedBooking] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [downloading, setDownloading] = useState(null);
-    const itemsPerPage = 6; // card per page
+    const itemsPerPage = 6;
 
     const fetchBookings = async () => {
         setLoading(true);
@@ -88,7 +88,6 @@ const UserBookings = () => {
         return { label: status, color: "bg-gray-100 text-gray-700" };
     };
 
-    // Pagination
     const totalPages = Math.ceil(bookings.length / itemsPerPage);
     const paginatedBookings = bookings.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
@@ -108,7 +107,6 @@ const UserBookings = () => {
 
     return (
         <div>
-            {/* Header */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-athletica-blue-dark">Riwayat Booking</h1>
                 <p className="text-gray-500 mt-1">Lihat semua kelas yang pernah Anda booking</p>
@@ -120,7 +118,6 @@ const UserBookings = () => {
                 </div>
             ) : (
                 <>
-                    {/* Grid Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {paginatedBookings.map((item) => {
                             const statusData = getStatusBadge(item.status, item.booking_type, item.payment?.status);
@@ -130,14 +127,13 @@ const UserBookings = () => {
 
                             return (
                                 <div key={item.booking_id} className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden group">
-                                    {/* Card header - warna background sesuai status */}
                                     <div className={`px-5 py-3 border-b border-gray-300 ${statusData.color.split(' ')[0]}`}>
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm font-semibold">{statusData.label}</span>
                                             <span className="text-xs text-gray-500">#{item.booking_id}</span>
                                         </div>
                                     </div>
-                                    {/* Card body */}
+
                                     <div className="p-5 space-y-3">
                                         <div className="flex items-start gap-3">
                                             <div className="bg-athletica-blue-light/20 p-2 rounded-xl">
@@ -204,7 +200,6 @@ const UserBookings = () => {
                         })}
                     </div>
 
-                    {/* Pagination */}
                     {totalPages > 1 && (
                         <div className="flex justify-center items-center gap-3 mt-8">
                             <button
@@ -227,7 +222,6 @@ const UserBookings = () => {
                 </>
             )}
 
-            {/* Modal Detail (sama seperti sebelumnya) */}
             {modalOpen && selectedBooking && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto">
@@ -238,7 +232,6 @@ const UserBookings = () => {
                             </button>
                         </div>
                         <div className="p-5 space-y-4">
-                            {/* Konten modal sama seperti sebelumnya */}
                             <div className="bg-gray-50 rounded-xl p-4 space-y-2">
                                 <h3 className="font-semibold text-athletica-blue-dark flex items-center gap-2"><Dumbbell size={18} /> Kelas</h3>
                                 <p className="text-lg font-medium">{selectedBooking.schedule?.class?.class_name}</p>
@@ -297,5 +290,3 @@ const UserBookings = () => {
         </div>
     );
 };
-
-export default UserBookings;

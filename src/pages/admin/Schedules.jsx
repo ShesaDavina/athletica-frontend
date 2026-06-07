@@ -1,19 +1,11 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
-import {
-    Search,
-    ChevronLeft,
-    ChevronRight,
-    Calendar,
-    Clock,
-    User,
-    Dumbbell,
-} from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, Calendar, Clock, User, Dumbbell } from "lucide-react";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const Schedules = () => {
+export default function Schedules() {
     const [schedules, setSchedules] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
@@ -197,5 +189,3 @@ const Schedules = () => {
         </div>
     );
 };
-
-export default Schedules;

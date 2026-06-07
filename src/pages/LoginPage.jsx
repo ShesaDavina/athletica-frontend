@@ -4,7 +4,7 @@ import { Dumbbell, Eye, EyeOff, Lock, Mail, ArrowRight } from "lucide-react";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../utils/axiosConfig";
 
-const LoginPage = () => {
+export default function LoginPage() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -163,5 +163,3 @@ const LoginPage = () => {
         </div>
     );
 };
-
-export default LoginPage;

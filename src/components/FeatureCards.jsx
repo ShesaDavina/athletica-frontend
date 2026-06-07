@@ -1,6 +1,6 @@
 import { Calendar, CreditCard, Users, Shield, ChevronRight } from "lucide-react";
 
-const FeatureCardsSimple = () => {
+export default function FeatureCardsSimple() {
     const items = [
         {
             title: "Booking Kelas Online",
@@ -52,5 +52,3 @@ const FeatureCardsSimple = () => {
         </div>
     );
 };
-
-export default FeatureCardsSimple;

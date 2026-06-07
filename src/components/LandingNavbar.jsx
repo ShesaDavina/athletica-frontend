@@ -1,14 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-    Navbar,
-    NavbarBrand,
-    NavbarCollapse,
-    NavbarToggle
-} from "flowbite-react";
+import { Navbar, NavbarBrand, NavbarCollapse, NavbarToggle } from "flowbite-react";
 import { Dumbbell } from "lucide-react";
 
-const LandingNavbar = () => {
+export default function LandingNavbar() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -62,5 +57,3 @@ const LandingNavbar = () => {
         </Navbar>
     );
 };
-
-export default LandingNavbar;

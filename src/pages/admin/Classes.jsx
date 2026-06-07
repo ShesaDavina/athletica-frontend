@@ -1,21 +1,11 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
-import {
-    Plus,
-    Search,
-    Edit,
-    Trash2,
-    ChevronLeft,
-    ChevronRight,
-    Dumbbell,
-    X,
-    Upload,
-} from "lucide-react";
+import { Plus, Search, Edit, Trash2, ChevronLeft, ChevronRight, Dumbbell, X, Upload } from "lucide-react";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const Classes = () => {
+export default function Classes() {
     const [classes, setClasses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
@@ -503,5 +493,3 @@ const Classes = () => {
         </div>
     );
 };
-
-export default Classes;

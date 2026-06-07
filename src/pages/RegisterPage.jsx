@@ -4,7 +4,7 @@ import { Dumbbell, Eye, EyeOff, Lock, Mail, User, ArrowRight } from "lucide-reac
 import { toast } from "react-hot-toast";
 import axiosInstance from "../utils/axiosConfig";
 
-const RegisterPage = () => {
+export default function RegisterPage() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -202,5 +202,3 @@ const RegisterPage = () => {
         </div>
     );
 };
-
-export default RegisterPage;

@@ -1,19 +1,11 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
-import {
-    Calendar,
-    Users,
-    CheckCircle,
-    Clock,
-    Dumbbell,
-    ArrowRight,
-    Award
-} from "lucide-react";
+import { Calendar, Users, CheckCircle, Clock, Dumbbell, ArrowRight, Award } from "lucide-react";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const TrainerDashboard = () => {
+export default function TrainerDashboard() {
     const [dashboardData, setDashboardData] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -78,13 +70,11 @@ const TrainerDashboard = () => {
 
     return (
         <div>
-            {/* Header */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-athletica-blue-dark">Dashboard Trainer</h1>
                 <p className="text-gray-500 mt-1">Selamat datang kembali! Berikut ringkasan aktivitas mengajar Anda.</p>
             </div>
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 {stats.map((stat, index) => (
                     <div
@@ -92,7 +82,7 @@ const TrainerDashboard = () => {
                         className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300"
                     >
                         <div className="flex items-center justify-between mb-4">
-                            <div className={`bg-gradient-to-br ${stat.bgGradient} p-3 rounded-xl`}>
+                            <div className={`bg-linear-to-br ${stat.bgGradient} p-3 rounded-xl`}>
                                 <stat.icon className="h-6 w-6 text-white" />
                             </div>
                         </div>
@@ -102,7 +92,6 @@ const TrainerDashboard = () => {
                 ))}
             </div>
 
-            {/* Upcoming Schedules Section */}
             <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-8">
                 <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
                     <div className="flex items-center gap-2">
@@ -156,9 +145,8 @@ const TrainerDashboard = () => {
                 </div>
             </div>
 
-            {/* Achievement / Tips Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-athletica-blue-dark to-athletica-blue-mid rounded-2xl p-6 text-white">
+                <div className="bg-linear-to-br from-athletica-blue-dark to-athletica-blue-mid rounded-2xl p-6 text-white">
                     <div className="flex items-center gap-3 mb-4">
                         <Award className="h-8 w-8" />
                         <h3 className="text-xl font-semibold">Pencapaian Anda</h3>
@@ -206,5 +194,3 @@ const TrainerDashboard = () => {
         </div>
     );
 };
-
-export default TrainerDashboard;

@@ -5,7 +5,7 @@ import { Dumbbell, LayoutDashboard, Calendar, LogOut, Menu, X, ClipboardList, Do
 import { toast } from "react-hot-toast";
 import axiosInstance from "../utils/axiosConfig";
 
-const TrainerLayout = () => {
+export default function TrainerLayout() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [trainerName, setTrainerName] = useState("");
@@ -61,7 +61,7 @@ const TrainerLayout = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-athletica-cream to-athletica-blue-light/20">
+        <div className="min-h-screen bg-linear-to-br from-athletica-cream to-athletica-blue-light/20">
             {sidebarOpen && isMobile && (
                 <div
                     className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -80,7 +80,7 @@ const TrainerLayout = () => {
                             className="flex items-center gap-2"
                             onClick={closeSidebar}
                         >
-                            <div className="bg-gradient-to-br from-athletica-blue-dark to-athletica-blue-mid p-2 rounded-xl">
+                            <div className="bg-linear-to-br from-athletica-blue-dark to-athletica-blue-mid p-2 rounded-xl">
                                 <Dumbbell className="h-6 w-6 text-white" />
                             </div>
                             <span className="text-xl font-bold text-athletica-blue-dark">
@@ -104,7 +104,7 @@ const TrainerLayout = () => {
                                 to={item.path}
                                 onClick={closeSidebar}
                                 className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group ${isActive(item.path)
-                                    ? "bg-gradient-to-r from-athletica-blue-dark to-athletica-blue-mid text-white shadow-md"
+                                    ? "bg-linear-to-r from-athletica-blue-dark to-athletica-blue-mid text-white shadow-md"
                                     : "text-athletica-blue-dark hover:bg-athletica-blue-light/20"
                                     }`}
                             >
@@ -116,7 +116,7 @@ const TrainerLayout = () => {
 
                     <div className="p-4 border-t border-gray-100">
                         <div className="flex items-center gap-3 mb-3">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-athletica-blue-dark to-athletica-blue-mid flex items-center justify-center text-white font-bold">
+                            <div className="w-10 h-10 rounded-xl bg-linear-to-br from-athletica-blue-dark to-athletica-blue-mid flex items-center justify-center text-white font-bold">
                                 {trainerName.charAt(0).toUpperCase()}
                             </div>
                             <div className="flex-1 min-w-0">
@@ -156,5 +156,3 @@ const TrainerLayout = () => {
         </div>
     );
 };
-
-export default TrainerLayout;

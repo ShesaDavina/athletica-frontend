@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const UserMemberships = () => {
+export default function UserMemberships() {
     const [memberships, setMemberships] = useState([]);
     const [activeMembership, setActiveMembership] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -168,5 +168,3 @@ const UserMemberships = () => {
         </div>
     );
 };
-
-export default UserMemberships;

@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
 
-const Payments = () => {
+export default function Payments() {
     const [payments, setPayments] = useState([]);
     const [pagination, setPagination] = useState({
         current_page: 1,
@@ -375,5 +375,3 @@ const Payments = () => {
         </div>
     );
 };
-
-export default Payments;
