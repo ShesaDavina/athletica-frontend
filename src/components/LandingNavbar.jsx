@@ -50,9 +50,6 @@ export default function LandingNavbar() {
                 <a href="#membership" className="navbar-link-custom">
                     Membership
                 </a>
-                <a href="#contact" className="navbar-link-custom">
-                    Contact
-                </a>
             </NavbarCollapse>
         </Navbar>
     );

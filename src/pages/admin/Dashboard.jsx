@@ -1,31 +1,29 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, } from "recharts";
 import { Users, Dumbbell, Calendar, TrendingUp, Award, MoreVertical, Activity, DollarSign } from "lucide-react";
 import axiosInstance from "../../utils/axiosConfig";
 import { DNA } from "react-loader-spinner";
+import toast from "react-hot-toast";
 
 export default function Dashboard() {
     const [dashboardData, setDashboardData] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const fetchDashboardData = async () => {
+        try {
+            const response = await axiosInstance.get("/dashboard/admin");
+            setDashboardData(response.data.data);
+        } catch (error) {
+            console.error("Error fetching dashboard:", error);
+            toast.error("Gagal mengambil data dashboard");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
-        let isMounted = true;
-        const fetchDashboardData = async () => {
-            try {
-                const response = await axiosInstance.get("/dashboard/admin");
-                if (isMounted) {
-                    setDashboardData(response.data.data);
-                    setLoading(false);
-                }
-            } catch (error) {
-                console.error("Error fetching dashboard:", error);
-                if (isMounted) setLoading(false);
-            }
-        };
         fetchDashboardData();
-        return () => {
-            isMounted = false;
-        };
     }, []);
 
     if (loading) {

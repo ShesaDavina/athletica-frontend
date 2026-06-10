@@ -80,7 +80,16 @@ export default function LandingPage() {
                         {classes.map((classItem, index) => (
                             <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
                                 <div className="h-48 bg-athletica-blue-mid/20 flex items-center justify-center">
-                                    <Dumbbell className="h-16 w-16 text-athletica-blue-mid" />
+                                    {classItem.image ? (
+                                        <img
+                                            src={classItem.image}
+                                            alt={classItem.name}
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                    ) : null}
+                                    <div className={`absolute inset-0 flex items-center justify-center ${classItem.image ? 'hidden' : ''}`}>
+                                        <Dumbbell className="h-16 w-16 text-athletica-blue-dark/30" />
+                                    </div>
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-athletica-blue-dark mb-2">
@@ -143,9 +152,10 @@ export default function LandingPage() {
                                         </li>
                                     ))}
                                 </ul>
-                                <button className="w-full py-2 rounded-xl font-semibold transition-all duration-200 bg-white text-athletica-blue-dark hover:bg-gray-100">
+                                <Link to="/register"
+                                    className="inline-flex items-center gap-2 bg-white text-athletica-blue-dark font-semibold px-25 py-2 rounded-xl hover:bg-gray-100 transition-all duration-200"                                >
                                     Pilih Paket
-                                </button>
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -190,20 +200,31 @@ const classes = [
         name: "Yoga",
         description: "Relaksasi tubuh dan pikiran dengan gerakan yoga",
         price: 100000,
-        capacity: 15
+        capacity: 15,
+        image: '/public/images/yoga.webp'
     },
     {
         name: "Zumba",
         description: "Senam aerobik energik dengan musik latin",
         price: 120000,
-        capacity: 20
+        capacity: 20,
+        image: '/public/images/zumba.jpg'
+
     },
     {
         name: "Weight Training",
         description: "Latihan beban untuk membentuk otot",
         price: 150000,
-        capacity: 10
-    }
+        capacity: 10,
+        image: '/public/images/weighttraining.jpg'
+    },
+    // {
+    //     name: "Pilates",
+    //     description: "Latihan beban untuk membentuk otot",
+    //     price: 200000,
+    //     capacity: 15,
+    //     image: '/public/images/pilates.jpeg'
+    // },
 ];
 
 const memberships = [

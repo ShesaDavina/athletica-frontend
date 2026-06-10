@@ -46,7 +46,7 @@ export default function RegisterPage() {
                 localStorage.setItem("user", JSON.stringify(response.data.data.user));
 
                 toast.success("Registrasi berhasil!");
-                navigate("/dashboard/user");
+                navigate("/user");
             }
         } catch (error) {
             const message = error.response?.data?.message || "Registrasi gagal, coba lagi";

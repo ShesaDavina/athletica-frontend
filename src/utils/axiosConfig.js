@@ -1,5 +1,4 @@
 import axios from "axios";
-// import toast from "react-hot-toast";
 
 const axiosInstance = axios.create({
     baseURL: "http://localhost:8000/api",
@@ -32,14 +31,5 @@ axiosInstance.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-
-// axiosInstance.interceptors.response.use(
-//     (response) => response,
-//     (error) => {
-//         const message = error.response?.data?.message || "Terjadi kesalahan";
-//         toast.error(message);
-//         return Promise.reject(error);
-//     }
-// );
 
 export default axiosInstance;
