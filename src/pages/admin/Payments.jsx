@@ -284,25 +284,25 @@ export default function Payments() {
                 </div>
 
                 {pagination.last_page > 1 && (
-                    <div className="flex justify-between items-center px-4 py-3 border-t">
+                    <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100">
                         <button
                             onClick={() => setPage(p => Math.max(1, p - 1))}
                             disabled={pagination.current_page === 1}
-                            className="px-3 py-1 text-sm border rounded-lg disabled:opacity-50 flex items-center gap-1"
+                            className="flex items-center gap-1 px-3 py-1 rounded-lg text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
                         >
-                            <ChevronLeft size={16} />
+                            <ChevronLeft className="h-4 w-4" />
                             Previous
                         </button>
-                        <span className="text-sm">
+                        <span className="text-sm text-gray-500">
                             Page {pagination.current_page} of {pagination.last_page} (Total: {pagination.total})
                         </span>
                         <button
                             onClick={() => setPage(p => Math.min(pagination.last_page, p + 1))}
                             disabled={pagination.current_page === pagination.last_page}
-                            className="px-3 py-1 text-sm border rounded-lg disabled:opacity-50 flex items-center gap-1"
+                            className="flex items-center gap-1 px-3 py-1 rounded-lg text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
                         >
                             Next
-                            <ChevronRight size={16} />
+                            <ChevronRight className="h-4 w-4" />
                         </button>
                     </div>
                 )}
