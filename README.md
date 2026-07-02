@@ -1,4 +1,4 @@
-# Athleica Backend Repo
+# Athletica Backend Repo
 https://github.com/ShesaDavina/athletica-backend.git
 
 # React + Vite
